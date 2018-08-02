@@ -1,2 +1,3 @@
-# fujion-lodash
-Web jar for https://github.com/lodash/lodash.
+# webjar-lodash
+Web jar for lodash.
+https://github.com/lodash/lodash

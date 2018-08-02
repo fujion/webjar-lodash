@@ -8,7 +8,7 @@
 	</parent>
 
 	<name>Lodash Library</name>
-	<artifactId>fujion-lodash</artifactId>
+	<artifactId>webjar-lodash</artifactId>
 	<version>4.17.10-SNAPSHOT</version>
 	<description>Lodash modular utilities.</description>
 	
