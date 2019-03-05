@@ -9,7 +9,7 @@
 
 	<name>Lodash Library</name>
 	<artifactId>webjar-lodash</artifactId>
-	<version>4.17.11-SNAPSHOT</version>
+	<version>4.17.11</version>
 	<description>Lodash modular utilities.</description>
 	
 	<properties>
@@ -45,4 +45,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+  <scm>
+    <tag>4.17.11</tag>
+  </scm>
 </project>
