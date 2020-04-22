@@ -9,7 +9,7 @@
 
 	<name>Lodash Library</name>
 	<artifactId>webjar-lodash</artifactId>
-	<version>4.17.11-1-SNAPSHOT</version>
+	<version>4.17.15-SNAPSHOT</version>
 	<description>Lodash modular utilities.</description>
 	
 	<properties>
