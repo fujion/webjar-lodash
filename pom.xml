@@ -12,13 +12,17 @@
 	<version>4.17.15-SNAPSHOT</version>
 	<description>Lodash modular utilities.</description>
 	
-	<properties>
-		<src.url>https://github.com/lodash/lodash/archive/${src.version}.zip</src.url>
-		<src.top>lodash-${src.version}</src.top>
-	</properties>
-	
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm-install</id>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -26,11 +30,24 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<get src="${src.url}" dest="${src.zipdir}/src.zip" />
-								<unzip src="${src.zipdir}/src.zip" dest="${src.tmpdir}" />
-								<move todir="${webjar.target}">
-									<fileset dir="${src.rootdir}" includes="dist/*.*,LICENSE,README.md" />
-								</move>
+								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+									<filterchain>
+										<expandproperties />
+									</filterchain>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>postcompile</id>
+						<configuration>
+							<target>
+								<copy todir="${webjar.target}">
+									<fileset dir="${src.rootdir}/node_modules/lodash" includes="LICENSE,README.md" />
+								</copy>
+								<copy todir="${webjar.target}/dist">
+									<fileset dir="${src.rootdir}/node_modules/lodash" includes="lodash*.js" />
+								</copy>
 							</target>
 						</configuration>
 					</execution>
