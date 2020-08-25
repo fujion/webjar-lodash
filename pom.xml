@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.fujion.webjars</groupId>
 		<artifactId>fujion-webjars</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<version>3.0.0</version>
 	</parent>
 
 	<name>Lodash Library</name>
 	<artifactId>webjar-lodash</artifactId>
-	<version>4.17.19-SNAPSHOT</version>
+	<version>4.17.19</version>
 	<description>Lodash modular utilities.</description>
 	
 	<build>
