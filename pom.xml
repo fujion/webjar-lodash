@@ -9,11 +9,32 @@
 
 	<name>Lodash Library</name>
 	<artifactId>webjar-lodash</artifactId>
-	<version>4.17.21-11</version>
+	<version>4.17.21-11-SNAPSHOT</version>
 	<description>Lodash modular utilities.</description>
-	
+
+	<properties>
+		<npm-install.skip>false</npm-install.skip>
+	</properties>
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.fujion.webjars</groupId>
+				<artifactId>webjar-validator-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>validate-webjar</id>
+						<configuration>
+							<rules>
+								<rule>file_exists import-map.json</rule>
+								<rule>file_exists README.md</rule>
+								<rule>file_contains LICENSE "Copyright OpenJS Foundation"</rule>
+								<rule>file_exists dist/lodash.js</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
