@@ -30,6 +30,7 @@
 								<rule>file_exists README.md</rule>
 								<rule>file_contains LICENSE "Copyright OpenJS Foundation"</rule>
 								<rule>file_exists dist/lodash.js</rule>
+								<rule>file_exists dist/lodash.min.js</rule>
 							</rules>
 						</configuration>
 					</execution>
@@ -42,23 +43,11 @@
 						<id>precompile</id>
 						<configuration>
 							<target>
-								<copy tofile="${src.rootdir}/package.json" file="${basedir}/package-template.json">
+								<copy todir="${src.rootdir}">
+									<fileset dir="${basedir}/staging" />
 									<filterchain>
 										<expandproperties />
 									</filterchain>
-								</copy>
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>postcompile</id>
-						<configuration>
-							<target>
-								<copy todir="${webjar.target}">
-									<fileset dir="${src.rootdir}/node_modules/lodash" includes="LICENSE,README.md" />
-								</copy>
-								<copy todir="${webjar.target}/dist">
-									<fileset dir="${src.rootdir}/node_modules/lodash" includes="lodash*.js" />
 								</copy>
 							</target>
 						</configuration>
